@@ -1,13 +1,20 @@
-import { router } from "expo-router";
+import { useUser } from "@/hooks/useUser";
+import { router, useRootNavigationState } from "expo-router";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
 
 export default function Index() {
+  const { user } = useUser();
+  const rootNavigationState = useRootNavigationState();
   useEffect(() => {
-    const timeout = setTimeout(() => router.replace("/home"), 300);
-
-    return () => clearTimeout(timeout);
-  }, []);
+    if (rootNavigationState?.key) {
+      if (user) {
+        router.replace("/home");
+      } else {
+        router.replace("/login");
+      }
+    }
+  }, [rootNavigationState?.key]);
   return (
     <View
       style={{

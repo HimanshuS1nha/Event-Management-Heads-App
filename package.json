@@ -25,6 +25,7 @@
     "expo-font": "~12.0.7",
     "expo-linking": "~6.3.1",
     "expo-router": "~3.5.17",
+    "expo-secure-store": "~13.0.2",
     "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.6",
@@ -38,6 +39,7 @@
     "react-native-screens": "3.31.1",
     "react-native-web": "~0.19.10",
     "twrnc": "^4.3.0",
+    "zod": "^3.23.8",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
