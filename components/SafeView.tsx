@@ -5,7 +5,8 @@ import {
   StyleProp,
   ViewStyle,
 } from "react-native";
-import React from "react";
+import React, { memo } from "react";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 
 const SafeView = ({
   children,
@@ -15,19 +16,23 @@ const SafeView = ({
   style?: StyleProp<ViewStyle>;
 }) => {
   return (
-    <SafeAreaView
-      style={[
-        {
-          paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-          flex: 1,
-          backgroundColor: "#000",
-        },
-        style,
-      ]}
-    >
-      {children}
-    </SafeAreaView>
+    <>
+      <SafeAreaView
+        style={[
+          {
+            paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+            flex: 1,
+            backgroundColor: "#000",
+          },
+          style,
+        ]}
+      >
+        {children}
+      </SafeAreaView>
+
+      <ExpoStatusBar style="light" />
+    </>
   );
 };
 
-export default SafeView;
+export default memo(SafeView);
