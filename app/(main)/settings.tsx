@@ -14,14 +14,17 @@ import * as SecureStore from "expo-secure-store";
 import SafeView from "@/components/SafeView";
 import { useUser } from "@/hooks/useUser";
 import Header from "@/components/Header";
+import { UseMyEvent } from "@/hooks/useMyEvent";
 
 const Settings = () => {
   const { user, setUser } = useUser();
+  const { setMyEvent } = UseMyEvent();
 
   const handleLogout = useCallback(async () => {
     await SecureStore.deleteItemAsync("user");
     await SecureStore.deleteItemAsync("token");
     setUser(null);
+    setMyEvent(null);
     router.replace("/login");
   }, []);
   return (

@@ -12,9 +12,11 @@ import { AntDesign } from "@expo/vector-icons";
 
 import SafeView from "@/components/SafeView";
 import LoadingModal from "@/components/LoadingModal";
+import { UseMyEvent } from "@/hooks/useMyEvent";
 
 const Event = () => {
-  const event: any = useLocalSearchParams();
+  // const event: any = useLocalSearchParams();
+  const { myEvent } = UseMyEvent();
   return (
     <SafeView>
       <LoadingModal isVisible={false} />
@@ -24,7 +26,7 @@ const Event = () => {
         contentContainerStyle={tw`pb-20`}
       >
         <ImageBackground
-          source={{ uri: event.image }}
+          source={{ uri: myEvent?.image }}
           style={tw`w-full h-[350px]`}
           resizeMode="stretch"
         >
@@ -38,7 +40,7 @@ const Event = () => {
             style={tw`absolute bottom-0 bg-gray-900/50 h-16 w-full items-start px-3 justify-center`}
           >
             <Text style={tw`text-sky-400 font-bold text-2xl`}>
-              {event.title}
+              {myEvent?.name}
             </Text>
           </View>
         </ImageBackground>
@@ -54,7 +56,7 @@ const Event = () => {
 
           <View style={tw`gap-y-2`}>
             <Text style={tw`text-white font-medium text-base`}>Location:</Text>
-            <Text style={tw`text-gray-300`}>UIET</Text>
+            <Text style={tw`text-gray-300`}>{myEvent?.location}</Text>
           </View>
 
           <View style={tw`bg-gray-700 w-[1.5px] h-full`} />
@@ -63,19 +65,39 @@ const Event = () => {
             <Text style={tw`text-white font-medium text-base`}>
               Room Number:
             </Text>
-            <Text style={tw`text-gray-300`}>200</Text>
+            <Text style={tw`text-gray-300`}>{myEvent?.roomNo}</Text>
           </View>
         </View>
 
         <View style={tw`mt-7 px-4 gap-y-2`}>
           <Text style={tw`text-white text-lg font-medium`}>About Event</Text>
-          <Text style={tw`text-white leading-6`}>
-            I have a screen that shows a FlatList with items and a detail screen
-            that would show more information about the item. The additional
-            information is within the item object so another API call is not
-            necessary.
+          <Text style={tw`text-white leading-7 text-justify`}>
+            {myEvent?.description}
           </Text>
         </View>
+
+        {myEvent?.rules && (
+          <View style={tw`px-4 gap-y-2 mt-7`}>
+            <Text style={tw`text-white text-lg font-medium`}>Rules</Text>
+            {myEvent?.rules.map((rule, i) => {
+              return (
+                <View style={tw`flex-row gap-x-3`} key={i}>
+                  <Text style={tw`text-white leading-6`}>{i + 1}.</Text>
+                  <Text style={tw`text-white leading-6`}>{rule}</Text>
+                </View>
+              );
+            })}
+            <View style={tw`flex-row gap-x-3`}>
+              <Text style={tw`text-red-500 font-medium leading-6`}>
+                {myEvent.rules.length + 1}.
+              </Text>
+              <Text style={tw`text-red-500 font-medium leading-6`}>
+                Violation of any rules may result in immediate disqualification
+                from the event, at the discretion of the organizers.
+              </Text>
+            </View>
+          </View>
+        )}
       </ScrollView>
 
       <View style={tw`absolute bottom-3 w-full items-center`}>
