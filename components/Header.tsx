@@ -13,9 +13,7 @@ const Header = ({ showBackButton = false }: { showBackButton?: boolean }) => {
         </TouchableOpacity>
       ) : (
         <Image
-          source={{
-            uri: "https://i.pinimg.com/originals/f6/db/9b/f6db9b785d37c154c2be26b7c32604b6.jpg",
-          }}
+          source={require("../assets/images/logo.webp")}
           style={tw`w-10 h-10 rounded-full`}
         />
       )}
