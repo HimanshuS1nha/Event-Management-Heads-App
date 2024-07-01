@@ -10,7 +10,7 @@ export type UserType = {
 
 type UseUserType = {
   user: UserType | null;
-  setUser: (user: UserType) => void;
+  setUser: (user: UserType | null) => void;
 };
 
 export const useUser = create<UseUserType>((set) => ({

@@ -9,15 +9,21 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import { router } from "expo-router";
+import * as SecureStore from "expo-secure-store";
 
 import SafeView from "@/components/SafeView";
 import { useUser } from "@/hooks/useUser";
 import Header from "@/components/Header";
 
 const Settings = () => {
-  const { user } = useUser();
+  const { user, setUser } = useUser();
 
-  const handleLogout = useCallback(() => {}, []);
+  const handleLogout = useCallback(async () => {
+    await SecureStore.deleteItemAsync("user");
+    await SecureStore.deleteItemAsync("token");
+    setUser(null);
+    router.replace("/login");
+  }, []);
   return (
     <SafeView>
       <ScrollView>
