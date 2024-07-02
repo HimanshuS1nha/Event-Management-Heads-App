@@ -58,8 +58,6 @@ const Students = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
 
-        <View style={tw`mb-4`} />
-
         <Title>Registered Students</Title>
 
         {data?.students.length === 0 && (

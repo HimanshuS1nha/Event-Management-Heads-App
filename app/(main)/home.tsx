@@ -68,6 +68,7 @@ const Home = () => {
 
             <Pressable
               style={tw`absolute bottom-[25%] w-40 items-center justify-center py-3 bg-violet-600 rounded-full`}
+              onPress={() => router.push("/students")}
             >
               <Text style={tw`text-white text-base`}>See Students List</Text>
             </Pressable>
@@ -78,11 +79,7 @@ const Home = () => {
               My Event
             </Text>
 
-            <Pressable
-              onPress={() =>
-                router.navigate("/event")
-              }
-            >
+            <Pressable onPress={() => router.navigate("/event")}>
               <EventCard event={myEvent} />
             </Pressable>
           </View>

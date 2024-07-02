@@ -6,7 +6,7 @@ import tw from "twrnc";
 
 const Header = ({ showBackButton = false }: { showBackButton?: boolean }) => {
   return (
-    <View style={tw`flex-row justify-between items-center my-4 px-4`}>
+    <View style={tw`flex-row justify-between items-center mt-4 mb-7 px-4`}>
       {showBackButton ? (
         <TouchableOpacity onPress={() => router.back()}>
           <AntDesign name="left" size={20} color="white" />
