@@ -29,7 +29,7 @@ const Settings = () => {
   }, []);
   return (
     <SafeView>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
 
         <View style={tw`items-center gap-y-5 mt-3`}>
@@ -74,6 +74,18 @@ const Settings = () => {
               <Entypo name="edit" size={24} color="white" />
               <Text style={tw`text-white text-base font-medium`}>
                 Edit Event Details
+              </Text>
+            </View>
+            <AntDesign name="caretright" size={24} color="white" />
+          </Pressable>
+          <Pressable
+            style={tw`flex-row justify-between items-center px-4 bg-gray-700 py-4`}
+            onPress={() => router.push("/change-password")}
+          >
+            <View style={tw`flex-row gap-x-5`}>
+              <Entypo name="lock" size={24} color="white" />
+              <Text style={tw`text-white text-base font-medium`}>
+                Change Password
               </Text>
             </View>
             <AntDesign name="caretright" size={24} color="white" />

@@ -97,7 +97,11 @@ const EditEventDetails = () => {
   return (
     <SafeView>
       <LoadingModal isVisible={isPending} />
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={tw`pb-4`}
+        keyboardShouldPersistTaps="handled"
+      >
         <Header showBackButton />
 
         <Title>Edit Event Details</Title>
