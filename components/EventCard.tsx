@@ -2,17 +2,21 @@ import { View, Text, Image } from "react-native";
 import React, { memo } from "react";
 import tw from "twrnc";
 import { AntDesign, Entypo } from "@expo/vector-icons";
+import { MyEventType } from "@/hooks/useMyEvent";
 
-const EventCard = ({ event }: any) => {
+const EventCard = ({ event }: { event: MyEventType }) => {
   return (
     <View style={tw`h-52 flex-row mb-6 px-4`}>
       <View
         style={tw`w-[50%] h-full bg-white rounded-l-lg items-center justify-center gap-y-4`}
       >
-        <View style={tw`items-center gap-y-1.5`}>
-          <Text style={tw`text-blue-600 text-xl font-bold`}>SAT</Text>
-          <Text style={tw`text-blue-600 text-xl font-bold`}>29</Text>
-          <Text style={tw`text-blue-600 text-xl font-bold`}>APRIL</Text>
+        <Text style={tw`text-blue-600 text-xl font-bold text-center`}>
+          {event.name}
+        </Text>
+
+        <View style={tw`flex-row gap-x-3 items-center`}>
+          <AntDesign name="calendar" size={20} color="red" />
+          <Text style={tw`font-semibold text-base`}>{event.date}</Text>
         </View>
 
         <View style={tw`flex-row gap-x-3 items-center`}>

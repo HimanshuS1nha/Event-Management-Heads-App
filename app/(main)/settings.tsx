@@ -55,7 +55,7 @@ const Settings = () => {
         <View style={tw`mt-10 w-full gap-y-6`}>
           <Pressable
             style={tw`flex-row justify-between items-center px-4 bg-gray-700 py-4`}
-            onPress={() => router.navigate("/edit-profile")}
+            onPress={() => router.push("/edit-profile")}
           >
             <View style={tw`flex-row gap-x-5`}>
               <FontAwesome5 name="user-edit" size={24} color="white" />
@@ -68,6 +68,7 @@ const Settings = () => {
 
           <Pressable
             style={tw`flex-row justify-between items-center px-4 bg-gray-700 py-4`}
+            onPress={() => router.push("/edit-event-details")}
           >
             <View style={tw`flex-row gap-x-5`}>
               <Entypo name="edit" size={24} color="white" />

@@ -103,6 +103,7 @@ const Event = () => {
       <View style={tw`absolute bottom-3 w-full items-center`}>
         <Pressable
           style={tw`bg-violet-600 w-40 items-center py-3 justify-center rounded-lg`}
+          onPress={() => router.push("/edit-event-details")}
         >
           <Text style={tw`text-white text-base font-bold`}>Edit Details</Text>
         </Pressable>

@@ -14,6 +14,7 @@ import Title from "@/components/Title";
 import { UserType, useUser } from "@/hooks/useUser";
 import LoadingModal from "@/components/LoadingModal";
 import { router } from "expo-router";
+import { editProfileValidator } from "@/validators/edit-profile-validator";
 
 const EditProfile = () => {
   const { user, setUser } = useUser();
@@ -64,9 +65,14 @@ const EditProfile = () => {
           isChanged: boolean;
         };
       }
+      const parsedData = await editProfileValidator.parseAsync({
+        name,
+        image,
+        phoneNumber,
+      });
       const { data } = await axios.post(
         `${process.env.EXPO_PUBLIC_API_URL}/edit-profile`,
-        { token, name, phoneNumber, image }
+        { token, ...parsedData }
       );
 
       return { head: data.head, isChanged: true } as {
@@ -86,6 +92,15 @@ const EditProfile = () => {
         },
       ]);
     },
+    onError: (error) => {
+      if (error instanceof ZodError) {
+        Alert.alert("Error", error.errors[0].message);
+      } else if (error instanceof AxiosError && error.response?.data.error) {
+        Alert.alert("Error", error.response?.data.error);
+      } else {
+        Alert.alert("Error", "Some error occured. Please try again later!");
+      }
+    },
   });
   return (
     <SafeView>
@@ -95,23 +110,23 @@ const EditProfile = () => {
       <Title>Edit Profile</Title>
 
       <View style={tw`gap-y-7 mt-10 items-center`}>
-        <View style={tw`gap-y-3 w-[80%]`}>
-          <View style={tw`items-center`}>
-            <View>
-              <Image
-                source={{
-                  uri: image,
-                }}
-                style={tw`w-32 h-32 rounded-full`}
-              />
-              <Pressable
-                style={tw`absolute bottom-0 right-0`}
-                onPress={pickImage}
-              >
-                <MaterialIcons name="change-circle" size={40} color="white" />
-              </Pressable>
-            </View>
+        <View style={tw`items-center`}>
+          <View>
+            <Image
+              source={{
+                uri: image,
+              }}
+              style={tw`w-32 h-32 rounded-full`}
+            />
+            <Pressable
+              style={tw`absolute bottom-0 right-0`}
+              onPress={pickImage}
+            >
+              <MaterialIcons name="change-circle" size={40} color="white" />
+            </Pressable>
           </View>
+        </View>
+        <View style={tw`gap-y-3 w-[80%]`}>
           <Text style={tw`text-white font-medium text-base ml-1`}>Name</Text>
           <TextInput
             style={tw`w-full border border-white px-4 py-3 rounded-lg text-white`}
