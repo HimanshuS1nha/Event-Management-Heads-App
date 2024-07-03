@@ -1,7 +1,10 @@
-import { useUser } from "@/hooks/useUser";
 import { router, useRootNavigationState } from "expo-router";
 import { useEffect } from "react";
-import { Text, View } from "react-native";
+import { Text, Image, ActivityIndicator } from "react-native";
+import tw from "twrnc";
+
+import SafeView from "@/components/SafeView";
+import { useUser } from "@/hooks/useUser";
 
 export default function Index() {
   const { user } = useUser();
@@ -16,14 +19,16 @@ export default function Index() {
     }
   }, [rootNavigationState?.key]);
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <SafeView style={tw`justify-center items-center gap-y-7`}>
+      <Image
+        source={require("../assets/images/logo.webp")}
+        style={tw`w-32 h-32 rounded-full`}
+      />
+      <Text style={tw`text-white text-2xl font-medium`}>
+        Event Management Head App
+      </Text>
+
+      <ActivityIndicator size={45} color={"violet"} />
+    </SafeView>
   );
 }
