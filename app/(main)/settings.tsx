@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, Pressable } from "react-native";
+import { View, Text, ScrollView, Image, Pressable, Alert } from "react-native";
 import React, { useCallback } from "react";
 import tw from "twrnc";
 import {
@@ -21,11 +21,21 @@ const Settings = () => {
   const { setMyEvent } = UseMyEvent();
 
   const handleLogout = useCallback(async () => {
-    await SecureStore.deleteItemAsync("user");
-    await SecureStore.deleteItemAsync("token");
-    setUser(null);
-    setMyEvent(null);
-    router.replace("/login");
+    Alert.alert("Warning", "Do you want to logout?", [
+      {
+        text: "No",
+      },
+      {
+        text: "Yes",
+        onPress: async () => {
+          await SecureStore.deleteItemAsync("user");
+          await SecureStore.deleteItemAsync("token");
+          setUser(null);
+          setMyEvent(null);
+          router.replace("/login");
+        },
+      },
+    ]);
   }, []);
   return (
     <SafeView>
@@ -61,19 +71,6 @@ const Settings = () => {
               <FontAwesome5 name="user-edit" size={24} color="white" />
               <Text style={tw`text-white text-base font-medium`}>
                 Edit Profile
-              </Text>
-            </View>
-            <AntDesign name="caretright" size={24} color="white" />
-          </Pressable>
-
-          <Pressable
-            style={tw`flex-row justify-between items-center px-4 bg-gray-700 py-4`}
-            onPress={() => router.push("/edit-event-details")}
-          >
-            <View style={tw`flex-row gap-x-5`}>
-              <Entypo name="edit" size={24} color="white" />
-              <Text style={tw`text-white text-base font-medium`}>
-                Edit Event Details
               </Text>
             </View>
             <AntDesign name="caretright" size={24} color="white" />

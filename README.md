@@ -1,50 +1,42 @@
-# Welcome to your Expo app 👋
+# Event Management Heads App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a part of the full stack event management app. Manage your event, view all the registered students and more.
 
-## Get started
+## Screenshots
 
-1. Install dependencies
+![Event Management Heads App 1](https://github.com/HimanshuS1nha/Event-Management-Heads-App/assets/97872929/ee686b77-8c42-41bf-8cdd-2bea0df96100)
 
-   ```bash
-   npm install
-   ```
+![Event Management Heads App 2](https://github.com/HimanshuS1nha/Event-Management-Heads-App/assets/97872929/53903546-a836-4b93-9e72-5305a57db3de)
 
-2. Start the app
+![Event Management Heads App 3](https://github.com/HimanshuS1nha/Event-Management-Heads-App/assets/97872929/872a4e90-d8a3-4ab7-adf2-558c7dbb27c9)
 
-   ```bash
-    npx expo start
-   ```
+![Event Management Heads App 4](https://github.com/HimanshuS1nha/Event-Management-Heads-App/assets/97872929/bf821759-d32a-456e-80cf-ee3257a850f3)
 
-In the output, you'll find options to open the app in a
+![Event Management Heads App 5](https://github.com/HimanshuS1nha/Event-Management-Heads-App/assets/97872929/6e38495b-01cc-4246-803e-21d15423bdd4)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Features
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Login/Logout
+- View and edit alloted event
+- View registered students
+- Edit profile
+- Change Password
 
-## Get a fresh project
+## TECH STACK USED
 
-When you're ready, run:
+- React Native Expo
+- Tailwind CSS
+- Zustand
+- Zod
 
-```bash
-npm run reset-project
-```
+## Demo
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Live Demo - Coming Soon
 
-## Learn more
+## OTHER LINKS
 
-To learn more about developing your project with Expo, look at the following resources:
+- [Head App](https://github.com/HimanshuS1nha/Event-Management-Heads-App)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 🚀 About Me
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+My name is Himanshu Sinha and I'm a full stack developer.
