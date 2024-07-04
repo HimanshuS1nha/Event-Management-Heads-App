@@ -35,7 +35,7 @@ Live Demo - Coming Soon
 
 ## OTHER LINKS
 
-- [Head App](https://github.com/HimanshuS1nha/Event-Management-Heads-App)
+- [Server](https://github.com/HimanshuS1nha/Event-Management-Server)
 
 ## 🚀 About Me
 
