@@ -35,6 +35,7 @@ Live Demo - Coming Soon
 
 ## OTHER LINKS
 
+- [Scanner App](https://github.com/HimanshuS1nha/Event-Management-Scanner-App)
 - [Server](https://github.com/HimanshuS1nha/Event-Management-Server)
 
 ## 🚀 About Me

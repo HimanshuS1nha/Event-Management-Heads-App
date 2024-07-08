@@ -16,15 +16,6 @@ import { StudentType } from "@/types";
 
 const Students = () => {
   const { myEvent } = UseMyEvent();
-  const students = [
-    {
-      image:
-        "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.1.1700460183.1712620800&semt=sph",
-      name: "Test Student",
-      branch: "CSE",
-      year: "3rd",
-    },
-  ];
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["get-registered-students"],
