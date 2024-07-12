@@ -37,6 +37,7 @@ Live Demo - Coming Soon
 
 - [User App](https://github.com/HimanshuS1nha/Event-Management-User-App)
 - [Scanner App](https://github.com/HimanshuS1nha/Event-Management-Scanner-App)
+- [Admin App](https://github.com/HimanshuS1nha/Event-Management-Admin-App)
 - [Server](https://github.com/HimanshuS1nha/Event-Management-Server)
 
 ## 🚀 About Me
