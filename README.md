@@ -31,7 +31,7 @@ This is a part of the full stack event management app. Manage your event, view a
 
 ## Demo
 
-Live Demo - Coming Soon
+Live Demo - [Click Here](https://www.youtube.com/shorts/M8feYsOMrYs)
 
 ## OTHER LINKS
 
