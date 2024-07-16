@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import React from "react";
 import tw from "twrnc";
-import { router, useLocalSearchParams } from "expo-router";
+import { router } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 
 import SafeView from "@/components/SafeView";
@@ -15,7 +15,6 @@ import LoadingModal from "@/components/LoadingModal";
 import { UseMyEvent } from "@/hooks/useMyEvent";
 
 const Event = () => {
-  // const event: any = useLocalSearchParams();
   const { myEvent } = UseMyEvent();
   return (
     <SafeView>
